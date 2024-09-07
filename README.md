@@ -67,3 +67,27 @@ txt = "THIS IS NOW!"
 x = txt.isupper()
 print(x)
 ```
+2.Extraer la cantidad de vocales y consonantes del archivo
+```python
+def contar_vocales_y_consonantes(texto:str):
+  vocales = "aeiouAEIOU"
+  consonantes = "bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ" #se hacen las cadenas con minusculas y mayusculas
+  
+  numero_vocales = 0 #se inician los contadores
+  numero_consonantes = 0
+
+  for chr in texto: # para cada caracter dentro del texto
+    if chr in vocales: #si el caracter esta en las cadenas anteriormente especificadas, hacer:
+      numero_vocales +=1
+    elif chr in consonantes:
+      numero_consonantes +=1
+
+  return(numero_vocales,numero_consonantes) 
+   
+
+if __name__ == '__main__':
+  file = open('archivotexto.txt') #abrir el archivo .txt
+  texto = file.read() #leer el archivo de texto
+  vocales_y_consonantes_contadas = contar_vocales_y_consonantes(texto) #llamar a la funcion 
+  print("El número de vocales y consonantes encontradas en el archivo son respectivamente " +str(vocales_y_consonantes_contadas))
+```
