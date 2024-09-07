@@ -1,4 +1,4 @@
-# Reto 12:Strings
+# Reto 12: Strings
 ### Elaborado por Steffy Geraldine Fernández González
 1. Métodos de strings en python:
 ## endswith
