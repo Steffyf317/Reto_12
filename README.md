@@ -57,9 +57,7 @@ print(x)
 ### Verifica que todo en el string esté en minúscula:
 ```python
 txt = "hello world!"
-
 x = txt.islower()
-
 print(x)
 ```
 ## isupper
