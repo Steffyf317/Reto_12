@@ -63,7 +63,7 @@ x = txt.islower()
 print(x)
 ```
 ## isupper
-Verifica que todo el string esté en mayúscula:
+### Verifica que todo el string esté en mayúscula:
 ```python
 txt = "THIS IS NOW!"
 x = txt.isupper()
