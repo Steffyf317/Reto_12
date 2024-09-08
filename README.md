@@ -91,3 +91,50 @@ if __name__ == '__main__':
   vocales_y_consonantes_contadas = contar_vocales_y_consonantes(texto) #llamar a la funcion 
   print("El número de vocales y consonantes encontradas en el archivo son respectivamente " +str(vocales_y_consonantes_contadas))
 ```
+Listado de las 50 palabras que más se repiten
+```python
+# Función que extrae las palabras del texto
+def separar_palabras(texto):
+  palabras = []
+  palabra = ""
+  # Recorre cada caracter del texto
+  for chr in texto:
+    # Cuando haya un caracter que no se una letra y se haya formado una palabra se agrega para luego formar la siguiente
+    if not(chr.isalpha()) and len(palabra) > 0:
+      palabras.append(palabra)
+      palabra = ""
+    # Se forma la palabra si es una letra
+    if chr.isalpha():
+      palabra += chr
+  return palabras
+
+# La función devuelve los n primeros elementos del arreglo
+def tomar_elementos(arreglo, n):
+  elementos = []
+  for i in range(n):
+    elementos.append(arreglo[i])
+  return elementos
+
+def listado_cincuenta_repetidas(texto):
+  # Diccionario en donde se agregan las palabras repetidas
+  repetidas = {}
+  # Se pasa el texto a lowercase para evitar que hayan diferencias por las mayúsculas
+  texto_min = texto.lower()
+  # Extraer la palabras del texto
+  palabras = separar_palabras(texto_min)
+  for palabra_actual in palabras:
+    # Si la palabra actual de la iteración no está en el diccionario, se inicializa su contador en 1. Si ya esta, se va aumentando el contador
+    if palabra_actual in repetidas:
+      repetidas[palabra_actual] += 1
+    else:
+      repetidas[palabra_actual] = 1
+  listado_palabras = list(dict(sorted(repetidas.items(), key=lambda item: item[1], reverse=True)).keys()) # Ordena los elementos del diccionario en orden descendente y se toman las keys, que son la palabras repetidas, para convertirlos en una lista
+  return tomar_elementos(listado_palabras, 50) # Devuelve las 50 palabras más repetidas
+
+
+if __name__ == "__main__":
+  file = open("archivotexto.txt")
+  texto = file.read()
+  repetidas = listado_cincuenta_repetidas(texto)
+  print(repetidas)
+```
