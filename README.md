@@ -67,7 +67,9 @@ txt = "THIS IS NOW!"
 x = txt.isupper()
 print(x)
 ```
-2. Extraer la cantidad de vocales y consonantes del archivo
+(Ejemplos extraídos de https://www.w3schools.com/)
+
+2. Extraer la cantidad de vocales y consonantes del archivo (.txt disponible en los files del repo)
 ```python
 def contar_vocales_y_consonantes(texto:str):
   vocales = "aeiouAEIOU"
